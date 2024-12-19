@@ -1,5 +1,6 @@
 import React from 'react';
 import { JSX, useEffect, useState } from 'react';
+import { Card } from 'primereact/card';
 
 export const App = (): JSX.Element => {
 
@@ -17,7 +18,7 @@ export const App = (): JSX.Element => {
   const value = 'World!!';
   return (
     <div>
-      <div>Hello {value}</div>
+      <Card>Hello {value}</Card>
       <div>API: {data}</div>
       <div>Database: {dbData}</div>
     </div>
