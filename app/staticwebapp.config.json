@@ -1,48 +1,51 @@
 {
-    "trailingSlash": "auto",
-    "routes": [
-      {
-        "route": "/app/*",
-        "allowedRoles": ["user"],
-        "rewrite": "/app/index.html"
-      },
-      {
-        "route": "/api/*",
-        "allowedRoles": ["user"]
-      },
-      {
-        "route": "/login",
-        "rewrite": "/.auth/login/github"
-      },
-      {
-        "route": "/.auth/login/aad",
-        "statusCode": 404
-      },
-      {
-        "route": "/logout",
-        "redirect": "/.auth/logout"
-      }
-    ],
-    "navigationFallback": {
-      "rewrite": "index.html",
-      "exclude": ["/images/*.{png,jpg,gif}", "/css/*"]
+  "trailingSlash": "auto",
+  "routes": [
+    {
+      "route": "/app/*",
+      "allowedRoles": [
+        "user"
+      ],
+      "rewrite": "/app/index.html"
     },
-    "responseOverrides": {
-      "400": {
-        "rewrite": "/invalid-invitation-error.html"
-      },
-      "401": {
-        "redirect": "/login",
-        "statusCode": 302
-      },
-      "403": {
-        "rewrite": "/custom-forbidden-page.html"
-      },
-      "404": {
-        "rewrite": "/404.html"
-      }
+    {
+      "route": "/api/*",
+      "allowedRoles": [
+        "user"
+      ]
     },
-    "mimeTypes": {
-      ".json": "text/json"
+    {
+      "route": "/.auth/login/aad",
+      "statusCode": 404
+    },
+    {
+      "route": "/logout",
+      "redirect": "/.auth/logout"
     }
+  ],
+  "navigationFallback": {
+    "rewrite": "index.html",
+    "exclude": [
+      "/images/*.{png,jpg,gif}",
+      "/css/*"
+    ]
+  },
+  "responseOverrides": {
+    "400": {
+      "rewrite": "/invalid-invitation-error.html"
+    },
+    "401": {
+      "redirect": "/.auth/login/github?post_login_redirect_uri=.referrer",
+      "statusCode": 302
+    },
+    "403": {
+      "rewrite": "/custom-forbidden-page.html"
+    },
+    "404": {
+      "rewrite": "/404.html"
+    }
+  },
+  "mimeTypes": {
+    ".json": "text/json"
   }
+}
