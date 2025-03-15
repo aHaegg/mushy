@@ -3,21 +3,12 @@
     "routes": [
       {
         "route": "/app/*",
+        "allowedRoles": ["user"],
         "rewrite": "/app/index.html"
       },
       {
         "route": "/api/*",
-        "methods": ["GET"],
         "allowedRoles": ["user"]
-      },
-      {
-        "route": "/api/*",
-        "methods": ["PUT", "POST", "PATCH", "DELETE"],
-        "allowedRoles": ["administrator"]
-      },
-      {
-        "route": "/api/*",
-        "allowedRoles": ["authenticated"]
       },
       {
         "route": "/login",
