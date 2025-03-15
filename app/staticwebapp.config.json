@@ -2,10 +2,8 @@
     "trailingSlash": "auto",
     "routes": [
       {
-        "route": "/images/*",
-        "headers": {
-          "cache-control": "must-revalidate, max-age=15770000"
-        }
+        "route": "/app/*",
+        "rewrite": "/app/index.html"
       },
       {
         "route": "/api/*",
@@ -52,9 +50,6 @@
       "404": {
         "rewrite": "/404.html"
       }
-    },
-    "globalHeaders": {
-      "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
     },
     "mimeTypes": {
       ".json": "text/json"
