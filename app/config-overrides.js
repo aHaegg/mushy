@@ -15,6 +15,11 @@ module.exports = function override(config, env) {
         filename: 'index.html',
       }),
       new HtmlWebpackPlugin({
+        inject: false,
+        template: 'public/notloggedin.html', // Plain version
+        filename: 'notloggedin.html',
+      }),
+      new HtmlWebpackPlugin({
         inject: true,
         template: 'public/app/index.html', // With JS bundle
         filename: 'app/index.html',
