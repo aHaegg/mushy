@@ -51,7 +51,7 @@ export const App = (): JSX.Element => {
   const value = "World!!";
   return (
     <div>
-      <Card>Hello {value}</Card>
+      <Card>Hello {value}.</Card>
       <div>API: {data}</div>
       <div>Database: {dbData}</div>
       <div>

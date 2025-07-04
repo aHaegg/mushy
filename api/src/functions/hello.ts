@@ -22,7 +22,7 @@ export async function hello(request: HttpRequest, context: InvocationContext): P
 
         context.log('Item:', item);
 
-        return { body: JSON.stringify({ text: "Hello, from the API!", dbtext: item.name }) };
+        return { body: JSON.stringify({ text: "Hello, from the nicest API!", dbtext: item.name }) };
     } catch (error) {
         context.log(`Error: ${error}`);
         return { status: 500, body: 'Internal Server Error' };
